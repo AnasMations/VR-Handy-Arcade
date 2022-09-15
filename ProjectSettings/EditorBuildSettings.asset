@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HandTrack.unity
+    path: Assets/Scenes/Menu.unity
+    guid: ea20e8278d9a3f34593f3c453bd45c9b
+  - enabled: 1
+    path: Assets/Scenes/Arcade.unity
     guid: 37d44d582bebc2f43bd699acbb292576
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9a59302272a7be3498d91b2e83f46a41,

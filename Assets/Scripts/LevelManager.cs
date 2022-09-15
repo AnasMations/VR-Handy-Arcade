@@ -12,9 +12,14 @@ public class LevelManager : MonoBehaviour
         Levels[PlayerPrefs.GetInt("currentLevel")].SetActive(true);
     }
 
-    public void ChangeScene(int levelIndex)
+    public void ChangeLevel(int levelIndex)
     {
         PlayerPrefs.SetInt("currentLevel", levelIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Arcade");
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -6,8 +6,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public int score = 0;
+    [HideInInspector] public int score = 0;
     public TextMeshPro scoreText;
+    public string gameId;
+    public TextMeshPro highScoreText;
     public float TimerValue;
     private float tempTimerValue;
     public TextMeshPro TimerText;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: " + score.ToString();
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt(gameId).ToString();
+
         if(TimerValue > 0)
         {
             TimerValue -= Time.deltaTime;
@@ -39,6 +43,11 @@ public class GameManager : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("gameOver");
             isGameOver = -1;
+        }
+
+        if(score > PlayerPrefs.GetInt(gameId))
+        {
+            PlayerPrefs.SetInt(gameId, score);
         }
 
         TimerText.text = string.Format("{0:00}", TimerValue);
