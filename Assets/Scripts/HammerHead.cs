@@ -7,23 +7,29 @@ public class HammerHead : MonoBehaviour
     public float MinTime, MaxTime;
     public Transform UpPos, DownPos;
     private bool isHidden=false;
+    private bool isTurnedOn=true;
     private float changePosDelay;
     private CapsuleCollider capsuleCollider;
     private GameManager gameManager;
-    private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        audio = GetComponent<AudioSource>();
         StartCoroutine(ChangePosCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameManager.TimerValue <= 0)
+        {
+            isTurnedOn=false;
+            if(!isHidden)
+            {
+                ChangePos();
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,7 +38,7 @@ public class HammerHead : MonoBehaviour
         {
             ChangePos();
             gameManager.score += 10;
-            audio.Play();
+            FindObjectOfType<AudioManager>().Play("catMeow");
         }
     }
 
@@ -55,7 +61,7 @@ public class HammerHead : MonoBehaviour
 
     IEnumerator ChangePosCoroutine()
     {
-        while(true)
+        while(isTurnedOn)
         {
             changePosDelay = Random.Range(MinTime, MaxTime);
             yield return new WaitForSeconds(changePosDelay);

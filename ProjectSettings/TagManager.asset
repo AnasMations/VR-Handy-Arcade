@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sword
   - Hammer
+  - Ball
   layers:
   - Default
   - TransparentFX
