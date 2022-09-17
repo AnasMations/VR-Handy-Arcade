@@ -1,7 +1,8 @@
 # VR Handy Arcade
 17th September 2022
 
-[Video Gameplay footage](https://youtu.be/FwV8bzlUIWQ) 
+#### [Video Gameplay footage](https://youtu.be/FwV8bzlUIWQ)
+#### [Design Document](https://docs.google.com/document/d/1GDcy0lfLs6SOWtPmN9havzlEMm42HFnMlZ7Qgz4YTyo/edit?usp=sharing)
 
 ### OVERVIEW
 VR Handy Arcade is a game developed for the meta quest 2 devices using built-in hand-tracking feature to play through and interact with 3 different arcade games:
